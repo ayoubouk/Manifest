@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: rg.fr-par.scw.cloud/campus/sante-backend 
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILE
+          value: rec
+       

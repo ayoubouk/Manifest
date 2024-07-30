@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-health-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saas-health-user
+  template:
+    metadata:
+      labels:
+        app: saas-health-user
+    spec:
+      containers:
+      - name: saas-health-user
+        image: rg.fr-par.scw.cloud/campus/fronthealth
+        ports:
+        - containerPort: 5173
